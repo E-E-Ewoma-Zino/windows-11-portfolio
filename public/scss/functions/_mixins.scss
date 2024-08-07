@@ -1,0 +1,100 @@
+@mixin windows {
+	position: fixed;
+	top: 0%;
+	left: 50%;
+	width: 55%;
+	height: 90vh;
+	transform: translate(-50%, 2%);
+	z-index: 1;
+	overflow: hidden;
+	background-color: #fff;
+	border-radius: $windows-border;
+}
+
+@mixin windowsHeader {
+	height: fit-content;
+	padding: 0;
+	background-color: $windows-lt-color;
+	box-shadow: 0 0px 1px #917a7a;
+}
+
+@mixin windowsTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+@mixin windowsTitleElements {
+	font-size: setFontSize("xs");
+	padding: 0% setEm("sm");
+
+	& img {
+		width: calc(setEm("md") + .3rem);
+	}
+}
+
+@mixin windowsTitleOptions {
+	width: 20%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+}
+
+@mixin windowsTitleOptionsBtn {
+	font-size: setFontSize("md");
+	padding: .5rem setEm("sm");
+
+	&:hover {
+		cursor: default;
+		@content;
+
+		&:last-child {
+			color: $white;
+			background-color: rgb(224, 31, 31);
+		}
+	}
+
+}
+
+@mixin windowsOptionHoverBackgroundColor($backgroundColorWhenHover) {
+	background-color: darken($color: $backgroundColorWhenHover, $amount: 14%);
+
+}
+
+@mixin windowsNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+@mixin windowsNavLinks {
+	font-size: setFontSize("sm");
+	padding-left: setEm("sm");
+}
+
+@mixin windowsNavLinkHover {
+
+	&:hover,
+	&:active {
+		cursor: default;
+		@content;
+	}
+}
+
+@mixin windowsNavOptions {
+	width: 20%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+@mixin windowsNavOptionsBtns {
+	padding: setEm("xs");
+	width: setEm("xl");
+	height: setEm("xl");
+}
+
+@mixin windowsNavOptionsBtnHover {
+	&:hover {
+		@content;
+	}
+}

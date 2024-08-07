@@ -1,0 +1,11 @@
+// Functions
+
+// Font size
+@function setFontSize($size) {
+	@return map-get($map: $font, $key: $size);
+}
+
+// set the rem for things
+@function setEm($size) {
+	@return map-get($map: $em, $key: $size);
+}

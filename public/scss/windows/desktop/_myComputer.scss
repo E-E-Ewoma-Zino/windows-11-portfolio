@@ -1,0 +1,135 @@
+.myComputer {
+	@include windows;
+
+	& header {
+		@include windowsHeader;
+
+		& .title {
+			@include windowsTitle;
+
+			& .heading h3 {
+				@include windowsTitleElements;
+			}
+
+			& .option {
+				@include windowsTitleOptions;
+
+				& span {
+					@include windowsTitleOptionsBtn {
+						@include windowsOptionHoverBackgroundColor($windows-lt-color);
+					}
+				}
+			}
+		}
+
+		& nav {
+			@include windowsNav;
+
+			& ul {
+				border-left: 1px solid darken($color: $windows-lt-color, $amount: 10%);
+
+				& li a {
+					@include windowsNavLinks;
+					color: black;
+
+					@include windowsNavLinkHover {
+						color: $black;
+						@include windowsOptionHoverBackgroundColor($windows-lt-color);
+					}
+				}
+			}
+		}
+	}
+
+	& .body {
+		width: 100%;
+
+		& nav {
+			display: flex;
+			align-items: center;
+			padding: calc(setEm("xs") - .2em);
+			justify-content: space-between;
+
+			& .navigator:nth-child(1) {
+				display: flex;
+				width: 13%;
+				justify-content: space-between;
+
+				& span {
+					width: 100%;
+					text-align: center;
+					border: 1px solid transparent;
+
+					&:last-child:hover {
+						border: 1px solid darken($windows-lt-color, 10%);
+						background-color: lighten($windows-lt-color, 3%);
+					}
+				}
+			}
+
+			& .navigator:nth-child(2) {
+				display: flex;
+				width: 60%;
+				margin: 0 1%;
+				padding: setEm("xs");
+				justify-content: space-between;
+				font-size: setFontSize("sm");
+				border: 1px solid lighten($color: $black, $amount: 90%);
+
+				& img {
+					width: calc(setEm("md") + .3em);
+				}
+			}
+
+			& .navigator:nth-child(3) {
+				display: flex;
+				width: 30%;
+				padding: setEm("xs");
+				justify-content: flex-start;
+				border: 1px solid lighten($color: $black, $amount: 90%);
+
+				& img {
+					width: setEm("sm");
+					margin-right: calc(setEm("xs"));
+				}
+
+				& input {
+					padding: 0 .2rem;
+					border: none;
+					outline: none;
+					box-shadow: none;
+					border-radius: 0;
+					font-size: setFontSize("sm");
+					border-left: 1px solid lighten($color: $black, $amount: 90%);
+				}
+			}
+		}
+
+		& .content {
+			& ul li {
+				margin-bottom: 1em;
+				font-size: calc(setFontSize("sm") + .1em);
+
+				& button {
+					font-size: calc(setFontSize("sm") + .1em);
+
+					&:focus {
+						outline: none;
+						box-shadow: none;
+					}
+				}
+
+				& img {
+					width: setEm("sm");
+					margin-right: calc(setEm("xs") - .2em);
+				}
+			}
+
+			& .btn-toggle-nav {
+				padding: .1875rem .5rem;
+				margin-top: .125rem;
+				margin-left: 1.25rem;
+			}
+		}
+	}
+}
